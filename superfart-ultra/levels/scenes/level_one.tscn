@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://3y84d7e6he5p"]
+
+[ext_resource type="Texture2D" uid="uid://b3gl6dmype1um" path="res://levels/sprites/sewer-background.png" id="1_gslpk"]
+[ext_resource type="PackedScene" uid="uid://cpf7lpkecajsj" path="res://player/scenes/player.tscn" id="2_qjh11"]
+[ext_resource type="PackedScene" uid="uid://cuk8tdkhka3mt" path="res://collectibles/scenes/coin.tscn" id="3_bknki"]
+[ext_resource type="PackedScene" uid="uid://bnt6vdgey4yqs" path="res://mobs/scenes/brownoser.tscn" id="4_0a1l2"]
+[ext_resource type="PackedScene" uid="uid://ck6hky8a0dg3c" path="res://camera/scenes/global_camera.tscn" id="5_qurwi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fyxcm"]
+bounce = 0.4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qam7"]
+size = Vector2(128, 20)
+
+[node name="LevelOne" type="Node"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 252)
+repeat_times = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_gslpk")
+
+[node name="Player" parent="." instance=ExtResource("2_qjh11")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_fyxcm")
+
+[node name="Panel" type="Panel" parent="StaticBody2D"]
+offset_left = -64.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 14)
+shape = SubResource("RectangleShape2D_3qam7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(69, -41)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3qam7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-69, -45)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3qam7")
+
+[node name="Coin" parent="." instance=ExtResource("3_bknki")]
+position = Vector2(-23, -236)
+
+[node name="Brownoser" parent="." instance=ExtResource("4_0a1l2")]
+position = Vector2(0, -101)
+
+[node name="GlobalCamera" parent="." instance=ExtResource("5_qurwi")]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Superfart Ultra"
-run/main_scene="res://levels/sewer_level.tscn"
+run/main_scene="res://levels/scenes/level_one.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -25,9 +25,25 @@ window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"
 window/handheld/orientation=1
 
+[input]
+
+fart={
+"deadzone": 0.5,
+"events": []
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="terrain"
+2d_physics/layer_4="collectible"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true

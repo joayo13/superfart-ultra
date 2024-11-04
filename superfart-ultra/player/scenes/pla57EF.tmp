@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpf7lpkecajsj"]
+[gd_scene load_steps=8 format=3 uid="uid://cpf7lpkecajsj"]
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_npgok"]
 [ext_resource type="Texture2D" uid="uid://c7w6d0oc4xju8" path="res://player/sprites/player-idle.png" id="2_jitpm"]
-[ext_resource type="PackedScene" uid="uid://csgqsgkkupe3t" path="res://ui/floating_text.tscn" id="3_h5rq5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lli6"]
 atlas = ExtResource("2_jitpm")
@@ -60,5 +59,3 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.75)
 shape = SubResource("RectangleShape2D_degn2")
-
-[node name="FloatingText" parent="." instance=ExtResource("3_h5rq5")]
